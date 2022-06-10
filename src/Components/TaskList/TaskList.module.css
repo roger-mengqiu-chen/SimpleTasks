@@ -1,0 +1,8 @@
+.task-list {
+  list-style: none;
+  margin: 3rem auto;
+  padding: 0;
+  width: 35rem;
+  max-width: 90%;
+  ;
+}

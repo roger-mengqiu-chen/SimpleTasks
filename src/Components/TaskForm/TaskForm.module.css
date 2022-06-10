@@ -1,0 +1,28 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 30rem;
+  margin: 3rem auto;
+  align-content: space-around;
+  padding: 2rem;
+  max-width: 90%;
+  background-color: beige;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  border-radius: 12px;
+}
+
+.task-input {
+  font-size: 18px;
+  background-color: rgb(251, 238, 219);
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 0.25rem 0;
+  line-height: 1.5rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.task-input.invalid {
+  border: 1px solid tomato;
+  background-color: rgb(249, 211, 204);
+}
