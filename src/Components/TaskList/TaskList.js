@@ -1,15 +1,17 @@
 import { useState } from "react";
 import TaskItem from "../TaskItem/TaskItem";
-import styles from './TaskList.module.css'
+import styles from "./TaskList.module.css";
 
-const TaskList = props => {
-  
-
-  return <ul className={ styles["task-list"]}>
-    {props.tasks.map(task => (
-      <TaskItem key={task.id} id={task.id} onDelete={props.onDeleteTask}>{task.task}</TaskItem>
-    ))}
-  </ul>
-}
+const TaskList = (props) => {
+  return (
+    <ul className={styles["task-list"]}>
+      {props.tasks.map((task) => (
+        <TaskItem key={task.id} id={task.id} onDelete={props.onDeleteTask}>
+          {task.task}
+        </TaskItem>
+      ))}
+    </ul>
+  );
+};
 
 export default TaskList;
