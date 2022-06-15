@@ -1,5 +1,6 @@
 # SimpleTasks
-Tasks web application.
+
+Tasks management web application. It is deployed at: [https://cr-tasks-app.herokuapp.com/](https://cr-tasks-app.herokuapp.com/). Loading can be slow (30s) because I'm using the free dyno, which can be hibernated by Heroku. 
 
 This small project demonstrates how to use state in ReactJS. 
 
