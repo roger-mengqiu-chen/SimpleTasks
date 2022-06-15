@@ -14,6 +14,7 @@ const TaskForm = (props) => {
       return;
     }
     props.onAddTask(ctn);
+    event.target.reset();
   };
 
   const inputHandler = (event) => {
