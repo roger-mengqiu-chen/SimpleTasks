@@ -14,7 +14,7 @@ const TaskForm = (props) => {
       return;
     }
     props.onAddTask(ctn);
-    event.target.reset();
+    setCtn("");
   };
 
   const inputHandler = (event) => {
@@ -31,6 +31,7 @@ const TaskForm = (props) => {
       </label>
       <input
         className={`${styles["task-input"]} ${!isValid && styles.invalid}`}
+        value={ctn}
         id="taskInput"
         onChange={inputHandler}
       ></input>
