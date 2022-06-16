@@ -1,5 +1,11 @@
 .card {
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  margin: 3rem auto;
+  align-content: space-around;
+  max-width: 90%;
+  background-color: beige;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
 }
