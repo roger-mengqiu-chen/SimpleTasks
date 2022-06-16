@@ -16,10 +16,10 @@ function App() {
     });
   };
 
-  const addTaskHandler = (task) => {
+  const addTaskHandler = (task, user, priority) => {
     setTasks((prevTasks) => {
       const updatedTasks = [...prevTasks];
-      updatedTasks.unshift({ task: task, id: Math.random().toString() });
+      updatedTasks.unshift({ task: task, user: user, priority: priority, id: Math.random().toString() });
       return updatedTasks;
     });
   };
