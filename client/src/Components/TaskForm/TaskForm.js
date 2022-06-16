@@ -8,7 +8,7 @@ const TaskForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
+
     if (ctn.trim().length === 0) {
       setIsValid(false);
       return;
@@ -26,7 +26,9 @@ const TaskForm = (props) => {
 
   return (
     <form className={styles["task-form"]} onSubmit={submitHandler}>
-      <label for="taskInput">New Task</label>
+      <label className={styles["task-label"]} for="taskInput">
+        New Task
+      </label>
       <input
         className={`${styles["task-input"]} ${!isValid && styles.invalid}`}
         id="taskInput"

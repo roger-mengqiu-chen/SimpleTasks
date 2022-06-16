@@ -26,3 +26,7 @@
   box-shadow: 0 0 0 2px tomato inset;
   border: 1px solid transparent;
 }
+
+.task-label {
+  font-weight: bold;
+}
