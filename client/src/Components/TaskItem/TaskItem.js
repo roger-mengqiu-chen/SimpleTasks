@@ -7,7 +7,9 @@ const TaskItem = (props) => {
 
   return (
     <li className={styles["task-item"]} onClick={deleteHandler}>
-      {props.children}
+      <p>{props.user}</p>
+      <p>{props.task}</p>
+      <p>{props.priority}</p>
     </li>
   );
 };
