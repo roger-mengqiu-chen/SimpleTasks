@@ -4,6 +4,8 @@
   background-color: #dee4bc;
   border-radius: 3px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .button:focus{
