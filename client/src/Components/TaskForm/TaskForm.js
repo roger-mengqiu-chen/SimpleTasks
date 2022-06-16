@@ -26,8 +26,10 @@ const TaskForm = (props) => {
 
   return (
     <form className={styles["task-form"]} onSubmit={submitHandler}>
+      <label for="taskInput">New Task</label>
       <input
         className={`${styles["task-input"]} ${!isValid && styles.invalid}`}
+        id="taskInput"
         onChange={inputHandler}
       ></input>
       <Button type="submit">Add Task</Button>

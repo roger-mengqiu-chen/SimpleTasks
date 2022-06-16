@@ -1,7 +1,6 @@
 .task-form {
   display: flex;
   flex-direction: column;
-  text-align: center;
   width: 30rem;
   margin: 3rem auto;
   align-content: space-around;
@@ -23,6 +22,7 @@
 }
 
 .task-input.invalid {
-  border: 1px solid tomato;
   background-color: rgb(249, 211, 204);
+  box-shadow: 0 0 0 2px tomato inset;
+  border: 1px solid transparent;
 }
