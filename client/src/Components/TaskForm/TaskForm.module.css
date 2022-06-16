@@ -1,14 +1,12 @@
 .task-form {
   display: flex;
   flex-direction: column;
+  margin: 0rem auto;
   width: 30rem;
-  margin: 3rem auto;
   align-content: space-around;
   padding: 2rem;
   max-width: 90%;
   background-color: beige;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-  border-radius: 12px;
 }
 
 .task-input {
@@ -29,4 +27,13 @@
 
 .task-label {
   font-weight: bold;
+}
+
+.priority-selector {
+  margin: 0.25rem 0;
+  background-color: rgb(251, 238, 219);
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 0.3rem
 }
