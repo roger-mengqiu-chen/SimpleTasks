@@ -10,8 +10,16 @@ const TaskItem = (props) => {
     priority = <p className={styles["task-priority"]}>{props.priority}</p>
   }
 
+  let itemStyle = "";
+  switch(props.priority) {
+    case "High": itemStyle = "high"; break;
+    case "Medium": itemStyle = "medium"; break;
+    case "Low": itemStyle = "low"; break;
+    default: break;
+  }
+
   return (
-    <li className={styles["task-item"]} onClick={deleteHandler}>
+    <li className={`${styles["task-item"]} ${styles[itemStyle]}`}onClick={deleteHandler}>
       <div className={styles["task-meta"]}>
         <p className={styles["task-user"]}>{props.user}</p>
         {priority}
