@@ -6,6 +6,8 @@ This small project demonstrates how to use state in ReactJS.
 
 More features will be added to this Mini application. 
 
+- [x] Add user and priority for each task
+- [x] Add modal to indicate input error (may be removed in the future)
 - [ ] User login
 - [ ] Database storage
 
