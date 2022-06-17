@@ -13,5 +13,5 @@ More features will be added to this Mini application.
 
 
 # Snapshot of application
-<img width="643" alt="Screen Shot 2022-06-10 at 21 53 16" src="https://user-images.githubusercontent.com/9221441/173171529-04616d65-c383-4480-a865-3cdd250e7d97.png">
 
+<img width="618" alt="Screen Shot 2022-06-17 at 00 28 18" src="https://user-images.githubusercontent.com/9221441/174238665-b4678ab5-fbe3-4b61-beba-2b7448865eba.png">
