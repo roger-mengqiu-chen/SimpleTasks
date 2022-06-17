@@ -7,6 +7,8 @@ function App() {
   const [tasks, setTasks] = useState([
     { task: "Do exercise", user: "user1", priority: "High", id: "1" },
     { task: "Finish the course", user: "user2", priority: "", id: "2" },
+    { task: "Another task", user: "user3", priority: "Medium", id: "3"},
+    { task: "Another task again", user: "user4", priority: "Low", id: "4"},
   ]);
 
   const deleteTaskHandler = (taskId) => {
