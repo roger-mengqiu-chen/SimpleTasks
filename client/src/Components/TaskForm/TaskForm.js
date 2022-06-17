@@ -9,6 +9,7 @@ const TaskForm = (props) => {
   const [priority, setPriority] = useState("");
   const [isTaskValid, setTaskIsValid] = useState(true);
   const [isUserValid, setUserIsValid] = useState(true);
+
   const submitHandler = (event) => {
     event.preventDefault();
     let formValid = true;
@@ -27,7 +28,7 @@ const TaskForm = (props) => {
     else {
       return;
     }
-    
+
     setTask("");
     setUser("");
     setPriority("");
@@ -43,8 +44,8 @@ const TaskForm = (props) => {
   const userInputHandler = (event) => {
     if (event.target.value.trim().length > 0) {
       setUserIsValid(true);
-      setUser(event.target.value);
     }
+    setUser(event.target.value);
   }
 
   const priorityHandler = (event) => {
