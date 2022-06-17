@@ -1,12 +1,14 @@
 import Button from "../UI/Button/Button";
 import styles from "./TaskForm.module.css";
 import Card from "../UI/Card/Card";
+import Modal from "../UI/Modal/Modal";
 import { useState } from "react";
 
 const TaskForm = (props) => {
   const [task, setTask] = useState("");
   const [user, setUser] = useState("");
   const [priority, setPriority] = useState("");
+  const [error, setError] = useState();
   const [isTaskValid, setTaskIsValid] = useState(true);
   const [isUserValid, setUserIsValid] = useState(true);
 
@@ -18,14 +20,22 @@ const TaskForm = (props) => {
       formValid = false;
     }
     if (task.trim().length === 0) {
-      setTaskIsValid(false);
+      setTaskIsValid(false);     
       formValid = false;
     }
 
-    if(formValid) {
-      props.onAddTask(task, user, priority);
+    let title = "";
+    let message = "";
+
+    if (!formValid) {
+      title = "Invalid input";
+      message = "Username or task should not be empty"; 
+      setError({title: title, message: message});
     }
-    else {
+
+    if (formValid) {
+      props.onAddTask(task, user, priority);
+    } else {
       return;
     }
 
@@ -46,45 +56,61 @@ const TaskForm = (props) => {
       setUserIsValid(true);
     }
     setUser(event.target.value);
-  }
+  };
 
   const priorityHandler = (event) => {
     setPriority(event.target.value);
+  };
+
+  const errorHandler = () => {
+    setError(null);
   }
 
   return (
-    <Card>
+    <div>
+      {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler}></Modal>}
+      <Card>
       <form className={styles["task-form"]} onSubmit={submitHandler}>
-      <label className={styles["task-label"]} htmlFor="userInput">
-        User
-      </label>
-      <input
-        className={`${styles["task-input"]} ${!isUserValid && styles.invalid}`}
-        id="userInput"
-        onChange={userInputHandler}
-        value={user}
-      ></input>
-      <label className={styles["task-label"]} htmlFor="taskInput">
-        New Task
-      </label>
-      <input
-        className={`${styles["task-input"]} ${!isTaskValid && styles.invalid}`}
-        value={task}
-        id="taskInput"
-        onChange={inputHandler}
-      ></input>
-      <label className={styles["task-label"]} htmlFor="priority">
-        Priority
-      </label>
-      <select id="priority" onChange={priorityHandler} className={styles["priority-selector"]} value={priority}>
-        <option></option>
-        <option>High</option>
-        <option>Medium</option>
-        <option>Low</option>
-      </select>
-      <Button type="submit">Add Task</Button>
-    </form>
+        <label className={styles["task-label"]} htmlFor="userInput">
+          User
+        </label>
+        <input
+          className={`${styles["task-input"]} ${
+            !isUserValid && styles.invalid
+          }`}
+          id="userInput"
+          onChange={userInputHandler}
+          value={user}
+        ></input>
+        <label className={styles["task-label"]} htmlFor="taskInput">
+          New Task
+        </label>
+        <input
+          className={`${styles["task-input"]} ${
+            !isTaskValid && styles.invalid
+          }`}
+          value={task}
+          id="taskInput"
+          onChange={inputHandler}
+        ></input>
+        <label className={styles["task-label"]} htmlFor="priority">
+          Priority
+        </label>
+        <select
+          id="priority"
+          onChange={priorityHandler}
+          className={styles["priority-selector"]}
+          value={priority}
+        >
+          <option></option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+        <Button type="submit">Add Task</Button>
+      </form>
     </Card>
+    </div>
     
   );
 };
