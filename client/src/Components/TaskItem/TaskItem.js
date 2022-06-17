@@ -5,11 +5,18 @@ const TaskItem = (props) => {
     props.onDelete(props.id);
   };
 
+  let priority;
+  if (props.priority) {
+    priority = <p className={styles["task-priority"]}>{props.priority}</p>
+  }
+
   return (
     <li className={styles["task-item"]} onClick={deleteHandler}>
-      <p>{props.user}</p>
-      <p>{props.task}</p>
-      <p>{props.priority}</p>
+      <div className={styles["task-meta"]}>
+        <p className={styles["task-user"]}>{props.user}</p>
+        {priority}
+      </div>
+      <p className={styles["task-task"]}>{props.task}</p>
     </li>
   );
 };
