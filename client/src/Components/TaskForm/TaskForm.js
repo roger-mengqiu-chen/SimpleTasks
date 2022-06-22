@@ -42,6 +42,9 @@ const TaskForm = (props) => {
       setTaskIsValid(true);
       setUserIsValid(true);
       props.onAddTask(task, user, priority);
+      taskInputRef.current.value = "";
+      nameInputRef.current.value = "";
+      priorityRef.current.value = "";
     } else {
       return;
     }
