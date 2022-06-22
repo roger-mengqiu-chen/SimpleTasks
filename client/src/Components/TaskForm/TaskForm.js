@@ -2,18 +2,23 @@ import Button from "../UI/Button/Button";
 import styles from "./TaskForm.module.css";
 import Card from "../UI/Card/Card";
 import Modal from "../UI/Modal/Modal";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const TaskForm = (props) => {
-  const [task, setTask] = useState("");
-  const [user, setUser] = useState("");
-  const [priority, setPriority] = useState("");
+  const nameInputRef = useRef();
+  const taskInputRef = useRef();
+  const priorityRef = useRef();
+
   const [error, setError] = useState();
   const [isTaskValid, setTaskIsValid] = useState(true);
   const [isUserValid, setUserIsValid] = useState(true);
 
   const submitHandler = (event) => {
     event.preventDefault();
+    const user = nameInputRef.current.value;
+    const task = taskInputRef.current.value;
+    const priority = priorityRef.current.value;
+
     let formValid = true;
     if (user.trim().length === 0) {
       setUserIsValid(false);
@@ -34,32 +39,12 @@ const TaskForm = (props) => {
     }
 
     if (formValid) {
+      setTaskIsValid(true);
+      setUserIsValid(true);
       props.onAddTask(task, user, priority);
     } else {
       return;
     }
-
-    setTask("");
-    setUser("");
-    setPriority("");
-  };
-
-  const inputHandler = (event) => {
-    if (event.target.value.trim().length > 0) {
-      setTaskIsValid(true);
-    }
-    setTask(event.target.value);
-  };
-
-  const userInputHandler = (event) => {
-    if (event.target.value.trim().length > 0) {
-      setUserIsValid(true);
-    }
-    setUser(event.target.value);
-  };
-
-  const priorityHandler = (event) => {
-    setPriority(event.target.value);
   };
 
   const errorHandler = () => {
@@ -79,8 +64,7 @@ const TaskForm = (props) => {
             !isUserValid && styles.invalid
           }`}
           id="userInput"
-          onChange={userInputHandler}
-          value={user}
+          ref={nameInputRef}
         ></input>
         <label className={styles["task-label"]} htmlFor="taskInput">
           New Task
@@ -89,18 +73,16 @@ const TaskForm = (props) => {
           className={`${styles["task-input"]} ${
             !isTaskValid && styles.invalid
           }`}
-          value={task}
           id="taskInput"
-          onChange={inputHandler}
+          ref={taskInputRef}
         ></input>
         <label className={styles["task-label"]} htmlFor="priority">
           Priority
         </label>
         <select
           id="priority"
-          onChange={priorityHandler}
+          ref={priorityRef}
           className={styles["priority-selector"]}
-          value={priority}
         >
           <option></option>
           <option>High</option>
