@@ -40,16 +40,36 @@ const LoginForm = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div className={classes.control}>
+        <div
+          className={`${classes.control} ${
+            emailIsValid === false ? classes.invalid : ""
+          }`}
+        >
           <label htmlFor="email">E-mail </label>
-          <input type="email" id="email" onChange={emailChangeHandler} onBlur={emailValidationHandler}/>
+          <input
+            type="email"
+            id="email"
+            onChange={emailChangeHandler}
+            onBlur={emailValidationHandler}
+          />
         </div>
-        <div className={classes.control}>
+        <div
+          className={`${classes.control} ${
+            passwordIsValid === false ? classes.invalid : ""
+          }`}
+        >
           <label htmlFor="password">Password </label>
-          <input type="password" id="password" onChange={passwordChangeHandler} onBlur={passwordValidationHandler}/>
+          <input
+            type="password"
+            id="password"
+            onChange={passwordChangeHandler}
+            onBlur={passwordValidationHandler}
+          />
         </div>
         <div className={classes.action}>
-          <Button type="submit" disabled={!formIsValid}>Login</Button>
+          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+            Login
+          </Button>
         </div>
       </form>
     </Card>
