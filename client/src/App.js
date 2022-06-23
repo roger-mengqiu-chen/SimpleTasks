@@ -1,41 +1,19 @@
-import TaskList from "./Components/TaskList/TaskList";
-import TaskForm from "./Components/TaskForm/TaskForm";
+import Header from "./Components/UI/Header/Header";
+import TaskApp from "./Components/TaskApp/TaskApp";
+
 import { useState } from "react";
 import "./App.css";
+import LoginForm from "./Components/Login/LoginForm";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    { task: "Do exercise", user: "user1", priority: "High", id: "1" },
-    { task: "Finish the course", user: "user2", priority: "", id: "2" },
-    { task: "Another task", user: "user3", priority: "Medium", id: "3"},
-    { task: "Another task again", user: "user4", priority: "Low", id: "4"},
-  ]);
 
-  const deleteTaskHandler = (taskId) => {
-    setTasks((prevTasks) => {
-      const updatedTasks = prevTasks.filter((t) => t.id !== taskId);
-      return updatedTasks;
-    });
-  };
-
-  const addTaskHandler = (task, user, priority) => {
-    setTasks((prevTasks) => {
-      const updatedTasks = [...prevTasks];
-      updatedTasks.unshift({ task: task, user: user, priority: priority, id: Math.random().toString() });
-      return updatedTasks;
-    });
-  };
-
-  let content = <p style={{ textAlign: "center" }}>No task found</p>;
-
-  if (tasks.length > 0) {
-    content = <TaskList tasks={tasks} onDeleteTask={deleteTaskHandler} />;
-  }
+  const [isLogin, setLoginStaus] = useState(false);
 
   return (
     <div>
-      <TaskForm onAddTask={addTaskHandler} />
-      <div>{content}</div>
+      <Header />
+      <LoginForm />
+      <TaskApp />
     </div>
   );
 }

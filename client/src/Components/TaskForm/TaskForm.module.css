@@ -11,7 +11,7 @@
 
 .task-input {
   font-size: 18px;
-  background-color: rgb(251, 238, 219);
+  background-color: rgb(240, 240, 240);
   border: 1px solid black;
   border-radius: 3px;
   margin: 0.25rem 0;
@@ -31,7 +31,7 @@
 
 .priority-selector {
   margin: 0.25rem 0;
-  background-color: rgb(251, 238, 219);
+  background-color: rgb(240, 240, 240);
   border: 1px solid black;
   border-radius: 3px;
   font-size: 18px;
