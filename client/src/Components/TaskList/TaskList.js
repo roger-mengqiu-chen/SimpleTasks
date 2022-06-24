@@ -5,8 +5,14 @@ const TaskList = (props) => {
   return (
     <ul className={styles["task-list"]}>
       {props.tasks.map((task) => (
-        <TaskItem key={task.id} id={task.id} onDelete={props.onDeleteTask} user={task.user} task={task.task} priority={task.priority}>
-        </TaskItem>
+        <TaskItem
+          key={task.id}
+          id={task.id}
+          onDelete={props.onDeleteTask}
+          user={task.user}
+          task={task.task}
+          priority={task.priority}
+        ></TaskItem>
       ))}
     </ul>
   );
