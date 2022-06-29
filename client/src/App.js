@@ -10,9 +10,13 @@ import AuthContext from "./context/auth-context";
 function App() {
   const ctx = useContext(AuthContext);
 
+  const dismissBanner = (e) => {
+    document.getElementById("bannerWarning").remove();
+  }
+
   return (
     <>
-      <Banner>
+      <Banner onClick={dismissBanner} id="bannerWarning">
         <b>
           This app is for demo purpose only. Currently there's no authentication
           procedure involved. Please don't input sensitive data.
