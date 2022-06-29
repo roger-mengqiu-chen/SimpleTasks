@@ -25,7 +25,7 @@ const TaskForm = (props) => {
       formValid = false;
     }
     if (task.trim().length === 0) {
-      setTaskIsValid(false);     
+      setTaskIsValid(false);
       formValid = false;
     }
 
@@ -34,8 +34,8 @@ const TaskForm = (props) => {
 
     if (!formValid) {
       title = "Invalid input";
-      message = "Username or task should not be empty"; 
-      setError({title: title, message: message});
+      message = "Username or task should not be empty";
+      setError({ title: title, message: message });
     }
 
     if (formValid) {
@@ -52,51 +52,56 @@ const TaskForm = (props) => {
 
   const errorHandler = () => {
     setError(null);
-  }
+  };
 
   return (
     <div>
-      {error && <Modal title={error.title} message={error.message} onConfirm={errorHandler}></Modal>}
+      {error && (
+        <Modal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        ></Modal>
+      )}
       <Card>
-      <form className={styles["task-form"]} onSubmit={submitHandler}>
-        <label className={styles["task-label"]} htmlFor="userInput">
-          User
-        </label>
-        <input
-          className={`${styles["task-input"]} ${
-            !isUserValid && styles.invalid
-          }`}
-          id="userInput"
-          ref={nameInputRef}
-        ></input>
-        <label className={styles["task-label"]} htmlFor="taskInput">
-          New Task
-        </label>
-        <input
-          className={`${styles["task-input"]} ${
-            !isTaskValid && styles.invalid
-          }`}
-          id="taskInput"
-          ref={taskInputRef}
-        ></input>
-        <label className={styles["task-label"]} htmlFor="priority">
-          Priority
-        </label>
-        <select
-          id="priority"
-          ref={priorityRef}
-          className={styles["priority-selector"]}
-        >
-          <option></option>
-          <option>High</option>
-          <option>Medium</option>
-          <option>Low</option>
-        </select>
-        <Button type="submit">Add Task</Button>
-      </form>
-    </Card>
+        <form className={styles["task-form"]} onSubmit={submitHandler}>
+          <label className={styles["task-label"]} htmlFor="userInput">
+            User
+          </label>
+          <input
+            className={`${styles["task-input"]} ${
+              !isUserValid && styles.invalid
+            }`}
+            id="userInput"
+            ref={nameInputRef}
+          ></input>
+          <label className={styles["task-label"]} htmlFor="taskInput">
+            New Task
+          </label>
+          <input
+            className={`${styles["task-input"]} ${
+              !isTaskValid && styles.invalid
+            }`}
+            id="taskInput"
+            ref={taskInputRef}
+          ></input>
+          <label className={styles["task-label"]} htmlFor="priority">
+            Priority
+          </label>
+          <select
+            id="priority"
+            ref={priorityRef}
+            className={styles["priority-selector"]}
+          >
+            <option></option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+          <Button type="submit">Add Task</Button>
+        </form>
+      </Card>
     </div>
-    
   );
 };
 
