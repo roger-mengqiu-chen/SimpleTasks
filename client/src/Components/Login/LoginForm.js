@@ -79,7 +79,7 @@ const LoginForm = (props) => {
   };
 
   const passwordValidationHandler = () => {
-    dispatchEmail({ type: "INPUT_BLUR" });
+    dispatchPassword({ type: "INPUT_BLUR" });
   };
 
   const submitHandler = (event) => {
