@@ -1,10 +1,12 @@
 .banner {
-  margin: 7rem 5rem;
+  margin: 7rem auto;
   margin-bottom: -6rem;
   background-color: rgb(255, 164, 164);
   padding: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  max-width: 90%;
+  width: 30rem;
 }
 
 .banner:hover,
