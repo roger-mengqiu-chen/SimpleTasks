@@ -28,3 +28,9 @@
 .button:hover {
   background-color: rgb(255, 130, 108);
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 4rem;
+  }
+}

@@ -1,0 +1,8 @@
+.nav_menu {
+}
+
+@media screen and (min-width: 600px) {
+  .nav_menu {
+    display: none;
+  }
+}

@@ -34,3 +34,9 @@
   background: #c6ce98;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
 }
+
+@media screen and (max-width: 600px){
+  .nav {
+    display: none;
+  }
+}
