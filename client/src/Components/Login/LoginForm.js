@@ -12,7 +12,6 @@ import AuthContext from "../../context/auth-context";
 import Input from "../UI/Input/Input";
 
 const emailReducer = (state, action) => {
-  console.log("email reducer");
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.includes("@") };
   }
@@ -23,7 +22,6 @@ const emailReducer = (state, action) => {
 };
 
 const passwordReducer = (state, action) => {
-  console.log("password reducer");
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.trim().length > 6 };
   }
