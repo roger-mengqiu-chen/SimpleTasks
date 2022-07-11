@@ -5,23 +5,23 @@ import Modal from "../UI/Modal/Modal";
 import { useState, useRef } from "react";
 
 const TaskForm = (props) => {
-  const nameInputRef = useRef();
+  const titleInputRef = useRef();
   const taskInputRef = useRef();
   const priorityRef = useRef();
 
   const [error, setError] = useState();
   const [isTaskValid, setTaskIsValid] = useState(true);
-  const [isUserValid, setUserIsValid] = useState(true);
+  const [isTitleValid, setTitleIsValid] = useState(true);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const user = nameInputRef.current.value;
+    const title = titleInputRef.current.value;
     const task = taskInputRef.current.value;
     const priority = priorityRef.current.value;
 
     let formValid = true;
-    if (user.trim().length === 0) {
-      setUserIsValid(false);
+    if (title.trim().length === 0) {
+      setTitleIsValid(false);
       formValid = false;
     }
     if (task.trim().length === 0) {
@@ -29,21 +29,21 @@ const TaskForm = (props) => {
       formValid = false;
     }
 
-    let title = "";
+    let msgTitle = "";
     let message = "";
 
     if (!formValid) {
-      title = "Invalid input";
-      message = "Username or task should not be empty";
-      setError({ title: title, message: message });
+      msgTitle = "Invalid input";
+      message = "Title or task should not be empty";
+      setError({ title: msgTitle, message: message });
     }
 
     if (formValid) {
       setTaskIsValid(true);
-      setUserIsValid(true);
-      props.onAddTask(task, user, priority);
+      setTitleIsValid(true);
+      props.onAddTask(task, title, priority);
       taskInputRef.current.value = "";
-      nameInputRef.current.value = "";
+      titleInputRef.current.value = "";
       priorityRef.current.value = "";
     } else {
       return;
@@ -65,18 +65,18 @@ const TaskForm = (props) => {
       )}
       <Card>
         <form className={styles["task-form"]} onSubmit={submitHandler}>
-          <label className={styles["task-label"]} htmlFor="userInput">
-            User
+          <label className={styles["task-label"]} htmlFor="titleInput">
+            Title
           </label>
           <input
             className={`${styles["task-input"]} ${
-              !isUserValid && styles.invalid
+              !isTitleValid && styles.invalid
             }`}
-            id="userInput"
-            ref={nameInputRef}
+            id="titleInput"
+            ref={titleInputRef}
           ></input>
           <label className={styles["task-label"]} htmlFor="taskInput">
-            New Task
+            Task
           </label>
           <input
             className={`${styles["task-input"]} ${
