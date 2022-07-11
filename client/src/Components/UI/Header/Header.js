@@ -1,7 +1,5 @@
 import classes from "./Header.module.css";
 import Navigation from "./Navigation";
-import NavMenu from "./NavMenu";
-
 const Header = (props) => {
   return (
     <div className={classes.header}>
@@ -9,7 +7,6 @@ const Header = (props) => {
         <h1>Simple Task</h1>
       </div>
       <Navigation />
-      <NavMenu></NavMenu>
     </div>
   );
 };
