@@ -34,8 +34,8 @@ const TaskApp = (props) => {
 
   return (
     <div className={classes.taskApp}>
-      <TaskForm onAddTask={addTaskHandler} />
       <div>{content}</div>
+      <TaskForm onAddTask={addTaskHandler} />
     </div>
   );
 };
