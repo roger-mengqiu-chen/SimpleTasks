@@ -1,6 +1,7 @@
 const HamburgerMenuIcon = () => {
   return (
-    <svg
+    <div>
+      <svg
       width="32px"
       height="32px"
       viewBox="0 0 32 32"
@@ -20,6 +21,8 @@ const HamburgerMenuIcon = () => {
         id="XMLID_316_"
       />
     </svg>
+    </div>
+    
   );
 };
 
