@@ -6,6 +6,11 @@ import { useContext } from "react";
 const NavMenu = (props) => {
   const ctx = useContext(AuthContext);
 
+  const clickOnLogout = () => {
+    ctx.onLogout();
+    props.onClose();
+  }
+
   return (
     <div
       className={`${classes.nav_menu} ${props.isShown === true ? classes.show : ""}`}
@@ -28,7 +33,7 @@ const NavMenu = (props) => {
           )}
           {ctx.isLoggedIn && (
             <li className={classes.desk}>
-              <button onClick={ctx.onLogout}>Logout</button>
+              <button onClick={clickOnLogout}>Logout</button>
             </li>
           )}
         </ul>
