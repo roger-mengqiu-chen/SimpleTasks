@@ -46,6 +46,14 @@
   text-align: center;
 }
 
+.error {
+  font-weight: bold;
+  background-color: #c0cb81;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+}
+
 @media (min-width: 768px) {
   .control {
     align-items: center;

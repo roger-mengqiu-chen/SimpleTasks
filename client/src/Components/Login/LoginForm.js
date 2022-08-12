@@ -33,6 +33,7 @@ const passwordReducer = (state, action) => {
 
 const LoginForm = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
+  const [error, setError] = useState(null);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
@@ -86,13 +87,16 @@ const LoginForm = (props) => {
       authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid) {
       emailRef.current.focus();
+      setError("Email should have @")
     } else {
       passwordRef.current.focus();
+      setError("Password should have at least 7 characters")
     }
   };
 
   return (
     <Card className={classes.login}>
+      {error && <div className={classes.error}>{error}</div>}
       <form onSubmit={submitHandler}>
         <Input
           id="email"
