@@ -42,8 +42,15 @@
   background-color: rgb(255, 144, 124);
 }
 
-.actions {
-  text-align: center;
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.register {
+  text-align: right;
+  margin-top: 2rem;
 }
 
 .error {
@@ -58,5 +65,14 @@
   .control {
     align-items: center;
     flex-direction: row;
+  }
+
+  .action {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .register {
+    margin-top: 1rem;
   }
 }

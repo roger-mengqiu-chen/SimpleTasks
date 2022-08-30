@@ -120,9 +120,10 @@ const LoginForm = (props) => {
           ref={passwordRef}
         ></Input>
         <div className={classes.action}>
-          <Button type="submit" className={classes.btn}>
+          <Button type="submit" >
             Login
           </Button>
+          <a href="/" className={classes.register}>Register an account</a>
         </div>
       </form>
     </Card>
