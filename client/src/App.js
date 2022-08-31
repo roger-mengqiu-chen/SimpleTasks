@@ -1,11 +1,15 @@
-import Header from "./Components/UI/Header/Header";
-import TaskApp from "./Components/TaskApp/TaskApp";
+import{ Route, Routes, Navigate } from "react-router-dom"
+
 import Banner from "./Components/UI/Banner/Banner";
 
 import { useContext } from "react";
 import "./App.css";
-import LoginForm from "./Components/Login/LoginForm";
+
+import Layout from "./Components/UI/Layout/Layout";
 import AuthContext from "./context/auth-context";
+import LoginScreen from "./page/LoginScreen";
+import MainScreen from "./page/MainScreen";
+import RegisterScreen from "./page/RegisterScreen";
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -15,7 +19,7 @@ function App() {
   }
 
   return (
-    <>
+    <Layout>
       <Banner onClick={dismissBanner} id="bannerWarning">
         <b>
           This app is for demo purpose only. Currently there's no authentication
@@ -24,12 +28,16 @@ function App() {
         <br />
         Click this banner to dismiss.
       </Banner>
-      <Header />
-      <main>
-        {!ctx.isLoggedIn && <LoginForm />}
-        {ctx.isLoggedIn && <TaskApp />}
-      </main>
-    </>
+      
+      <Routes>
+        <Route path="/" element={<MainScreen></MainScreen>}></Route>
+        <Route path="/login" element={<LoginScreen></LoginScreen>}></Route>
+        <Route path="/register" element={<RegisterScreen></RegisterScreen>}></Route>
+        <Route path="/profile"></Route>
+        <Route path="/404"></Route>
+        <Route path="*" element={<Navigate to="/login" replace />} ></Route>
+      </Routes>      
+    </Layout>
   );
 }
 
