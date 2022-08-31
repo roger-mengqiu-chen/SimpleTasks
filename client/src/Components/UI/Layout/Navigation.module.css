@@ -13,7 +13,11 @@
 
 .nav a {
   text-decoration: none;
-  color: white;
+  color: rgb(84, 84, 84);
+}
+
+.nav a:hover {
+  color: black;
 }
 
 .nav button {
