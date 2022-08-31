@@ -1,4 +1,4 @@
-.login {
+.authform {
   margin: 8rem auto;
   max-width: 90%;
   padding: 2rem;
@@ -34,12 +34,13 @@
 
 .control input:focus {
   outline: none;
-  border: 1px solid rgb(248, 175, 111);
+  border: 1px solid black;
+  box-shadow: 2px 2px rgb(169, 169, 169);
 }
 
 .control.invalid input {
   border-color: red;
-  background-color: rgb(255, 144, 124);
+  background-color: rgb(255, 168, 153);
 }
 
 .action {
@@ -48,7 +49,7 @@
   justify-content: space-between;
 }
 
-.register {
+.alt {
   text-align: right;
   margin-top: 2rem;
 }
@@ -72,7 +73,7 @@
     justify-content: space-between;
   }
 
-  .register {
+  .alt {
     margin-top: 1rem;
   }
 }
