@@ -5,7 +5,7 @@ import Button from "../UI/Button/Button";
 import classes from "./AuthForm.module.css";
 
 const isEmail = (value) => value.includes("@");
-const passwordValidator = (value) => value.length > 6;
+const passwordValidator = (value) => value.length >= 6;
 
 const AuthForm = (props) => {
   const {
@@ -32,6 +32,8 @@ const AuthForm = (props) => {
       return;
     }
 
+
+
     resetEmail();
     resetPassword();
   };
@@ -39,9 +41,11 @@ const AuthForm = (props) => {
   let error = "";
   if (emailHasError) {
     error = "Email format is invalid";
-  } else if (passwordHasError) {
-    error = "Password should have at least 7 characters";
-  } else if (passwordHasError && emailHasError) {
+  } 
+  if (passwordHasError) {
+    error = "Password should have at least 6 characters";
+  } 
+  if (passwordHasError && emailHasError) {
     error = "Email and Password are invalid";
   }
 
